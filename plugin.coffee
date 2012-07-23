@@ -18,7 +18,13 @@ module.exports = (wintersmith, callback) ->
         if error
           callback error
         else
-          jst = "window.JST['#{@templateName()}'] = '#{buffer.toString().replace("\n", "")}'"
+          jst = """
+                window.JST || (window.JST = {});
+                window.JST['#{@templateName()}'] = function(data, map){
+                  var markup = '#{buffer.toString().replace("\n", "").replace("'", "\\'")}';
+                  return Plates.bind(markup, data, map);
+                }
+                """
           callback null, new Buffer(jst)
 
   PlatesPlugin.fromFile = (filename, base, callback) ->
