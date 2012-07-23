@@ -1,0 +1,18 @@
+{
+  "name": "wintersmith-plates",
+  "version": "0.0.0",
+  "description": "Renders HTML templates to a JST array for use in your Javascript rendering code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joefiorini/wintersmith-plates.git"
+  },
+  "dependencies": {
+    "coffee-script": "*"
+  },
+  "author": "Joe Fiorini",
+  "license": "MIT"
+}
